@@ -1,0 +1,19 @@
+{% extends 'boards/base.html' %}
+
+{% block content %}
+    <h2>BOARD</h2>
+    <a href="/boards/new/">글 작성</a>
+    <hr>
+    # boards 쿼리셋(리스트)
+    {% for board in boards %}
+    <p>{{ board.pk }}</p>
+    <p>{{ board.title }}</p>
+    <p>{{board.content}}</p>
+    <p>{{ board.created_at|timesince }} 전</p>
+    <a href="/boards/{{ board.pk }}">글 보러가기</a>
+    <hr>
+    {% endfor %}
+{% endblock %}
+
+
+
